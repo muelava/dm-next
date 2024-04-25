@@ -5,25 +5,26 @@ export const config = {
 };
 
 export default async function middleware(req: NextRequest) {
-    const url = req.nextUrl;
+  const url = req.nextUrl;
 
-    const hostname = req.headers.get("host")!;
+  const hostname = req.headers.get("host")!;
 
-    const path = url.pathname;
+  const path = url.pathname;
 
-    let subdomain = hostname.split(".")[0];
-    subdomain = subdomain.replace("localhost:3000", "");
+  let subdomain = hostname.split(".")[0];
+  subdomain = subdomain.replace("localhost:3000", "");
+  subdomain = subdomain.replace("showdev.tech", "");
 
-    if (subdomain === "www" || subdomain === "") {
-      return NextResponse.next();
-    }
+  if (subdomain === "www" || subdomain === "") {
+    return NextResponse.next();
+  }
 
-    if (subdomain === "app" || subdomain === "pemodal") {
-      return NextResponse.rewrite(new URL(`/pemodal/${path === "/" ? "" : path}`, req.url));
-    } else if (subdomain === "app" || subdomain === "penerbit") {
-      return NextResponse.rewrite(new URL(`/penerbit/${path === "/" ? "" : path}`, req.url));
-    }
-    return NextResponse.redirect(hostname);
+  if (subdomain === "app" || subdomain === "pemodal") {
+    return NextResponse.rewrite(new URL(`/pemodal/${path === "/" ? "" : path}`, req.url));
+  } else if (subdomain === "app" || subdomain === "penerbit") {
+    return NextResponse.rewrite(new URL(`/penerbit/${path === "/" ? "" : path}`, req.url));
+  }
+  return NextResponse.redirect(hostname);
 
   // return NextResponse.next();
 }
