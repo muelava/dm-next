@@ -6,7 +6,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/src/app/pages.tsx"
+      "dest": "/src/app/page.tsx"
     }
   ]
 }
