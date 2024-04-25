@@ -13,7 +13,7 @@ function Portofolio() {
         <html lang="en" />
       </Head>
       <section>
-        <h4>Portfolio</h4>
+        <h4>Portfolio pages</h4>
       </section>
     </>
   );
