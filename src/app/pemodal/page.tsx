@@ -4,7 +4,7 @@ import React from "react";
 function HomePemodal() {
   return (
     <>
-      <h1>Pemodal Homes</h1>
+      <h1>Pemodal Home Again</h1>
     </>
   );
 }
