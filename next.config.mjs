@@ -3,21 +3,12 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/:path*",
-        destination: "/pemodal/:path*",
+        source: "/pemodal/:path*", // Tentukan source untuk subdomain pemodal.showdev.tech
+        destination: "/src/app/pemodal/:path*", // Arahkan permintaan dari subdomain pemodal.showdev.tech ke folder src/app/pemodal
       },
-    ];
-  },
-  async headers() {
-    return [
       {
-        source: "/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=3600",
-          },
-        ],
+        source: "/:path*", // Tentukan source untuk domain showdev.tech
+        destination: "/src/app/:path*", // Arahkan semua permintaan dari domain showdev.tech ke folder src/app
       },
     ];
   },
