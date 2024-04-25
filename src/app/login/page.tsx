@@ -5,7 +5,7 @@ import { Button } from "@nextui-org/button";
 function Login() {
   return (
     <>
-      <div>Login</div>
+      <div>Login again</div>
       <Button>Press me</Button>
     </>
   );
