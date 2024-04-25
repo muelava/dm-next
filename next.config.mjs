@@ -3,8 +3,21 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/pemodal/:path*",
+        source: "/:path*",
         destination: "/pemodal/:path*",
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600",
+          },
+        ],
       },
     ];
   },
